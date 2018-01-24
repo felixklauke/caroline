@@ -22,43 +22,44 @@
  * SOFTWARE.
  */
 
-package de.felix_klauke.caroline;
+package de.felix_klauke.caroline.core.module;
 
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import de.felix_klauke.caroline.module.CarolineModule;
-import org.bukkit.plugin.java.JavaPlugin;
+import com.google.inject.AbstractModule;
+import com.google.inject.name.Names;
+import de.felix_klauke.caroline.core.CarolinePlugin;
+import de.felix_klauke.caroline.core.scheduler.AsynchronousScheduler;
+import de.felix_klauke.caroline.core.scheduler.SynchronousScheduler;
+import io.reactivex.Scheduler;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitScheduler;
 
 /**
- * The bukkit plugin used when this library is run as a plugin.
+ * The google guice dependency module.
  *
  * @author Felix Klauke <fklauke@itemis.de>
  */
-public class CarolinePlugin extends JavaPlugin {
+public class CarolineModule extends AbstractModule {
 
     /**
-     * The injector to create our instances.
+     * The caroline plugin instance.
      */
-    private Injector injector;
+    private final CarolinePlugin carolinePlugin;
 
     /**
-     * The instance of the caroline application.
+     * Create a new caroline dependency module.
+     *
+     * @param carolinePlugin The caroline plugin instance.
      */
-    private CarolineApplication carolineApplication;
-
-    @Override
-    public void onLoad() {
-        injector = Guice.createInjector(new CarolineModule(this));
-        carolineApplication = injector.getInstance(CarolineApplication.class);
+    public CarolineModule(CarolinePlugin carolinePlugin) {
+        this.carolinePlugin = carolinePlugin;
     }
 
     @Override
-    public void onEnable() {
-        carolineApplication.initialize();
-    }
+    protected void configure() {
+        bind(Plugin.class).toInstance(carolinePlugin);
+        bind(BukkitScheduler.class).toInstance(carolinePlugin.getServer().getScheduler());
 
-    @Override
-    public void onDisable() {
-        carolineApplication.destroy();
+        bind(Scheduler.class).annotatedWith(Names.named("syncScheduler")).to(SynchronousScheduler.class).asEagerSingleton();
+        bind(Scheduler.class).annotatedWith(Names.named("asyncScheduler")).to(AsynchronousScheduler.class).asEagerSingleton();
     }
 }
