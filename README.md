@@ -1,6 +1,6 @@
 # caroline
 
-Ever tries using the java version of the reactive extensions ( https://github.com/ReactiveX/RxJava ) in a minecraft
+Ever tried using the java version of the reactive extensions ( https://github.com/ReactiveX/RxJava ) in a minecraft
 bukkit server? Yes? Then you may know what this is and why you need it. Without any modifications its very
 unlikely that your server will run very long. Using this plugin you can schedule rx javas internal thread architecture
 on bukkit schedulers to make rxjava usable in general. Have fun using this.
