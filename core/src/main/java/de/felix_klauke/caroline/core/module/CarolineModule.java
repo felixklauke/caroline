@@ -27,6 +27,7 @@ package de.felix_klauke.caroline.core.module;
 import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
 import de.felix_klauke.caroline.core.CarolinePlugin;
+import de.felix_klauke.caroline.core.RxCaroline;
 import de.felix_klauke.caroline.core.scheduler.AsynchronousScheduler;
 import de.felix_klauke.caroline.core.scheduler.SynchronousScheduler;
 import io.reactivex.Scheduler;
@@ -61,5 +62,7 @@ public class CarolineModule extends AbstractModule {
 
         bind(Scheduler.class).annotatedWith(Names.named("syncScheduler")).to(SynchronousScheduler.class).asEagerSingleton();
         bind(Scheduler.class).annotatedWith(Names.named("asyncScheduler")).to(AsynchronousScheduler.class).asEagerSingleton();
+
+        requestStaticInjection(RxCaroline.class);
     }
 }
