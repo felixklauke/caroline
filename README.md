@@ -24,6 +24,34 @@ _Caroline Core:_
 
 ## Event Example
 
+_Plain old listener:_
+```java
+RxCaroline.observeEvent(PlayerJoinEvent.class).subscribe(event -> {
+        event.setJoinMessage("A new player joined: " + event.getPlayer().getName());          
+    });
+```
+
+_Use a specific priority:_
+```java
+RxCaroline.observeEvent(PlayerJoinEvent.class, EventPriority.LOWEST).subscribe(event -> {
+        event.setJoinMessage("A new player joined: " + event.getPlayer().getName());          
+    });
+```
+
+_Ignore cancelled events:_
+```java
+RxCaroline.observeEvent(PlayerJoinEvent.class, true).subscribe(event -> {
+        event.setJoinMessage("A new player joined: " + event.getPlayer().getName());          
+    });
+```
+
+_Both at the same time:_
+```java
+RxCaroline.observeEvent(PlayerJoinEvent.class, EventPriority.LOWEST, true).subscribe(event -> {
+        event.setJoinMessage("A new player joined: " + event.getPlayer().getName());          
+    });
+```
+
 ## Command Example
 
 ## Packet Adapter example
