@@ -89,5 +89,6 @@ public class CarolineApplication {
      */
     public void destroy() {
         RxJavaPlugins.reset();
+        RxCaroline.reset();
     }
 }
