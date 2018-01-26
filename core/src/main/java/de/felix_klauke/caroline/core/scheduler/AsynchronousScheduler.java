@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package de.felix_klauke.caroline.scheduler;
+package de.felix_klauke.caroline.core.scheduler;
 
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitScheduler;

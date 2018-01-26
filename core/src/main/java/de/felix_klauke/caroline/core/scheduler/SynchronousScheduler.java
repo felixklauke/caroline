@@ -22,43 +22,44 @@
  * SOFTWARE.
  */
 
-package de.felix_klauke.caroline;
+package de.felix_klauke.caroline.core.scheduler;
 
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import de.felix_klauke.caroline.module.CarolineModule;
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitScheduler;
+import org.bukkit.scheduler.BukkitTask;
+
+import javax.inject.Inject;
 
 /**
- * The bukkit plugin used when this library is run as a plugin.
+ * The scheduler implementation that will schedule synchronous tasks.
  *
  * @author Felix Klauke <fklauke@itemis.de>
  */
-public class CarolinePlugin extends JavaPlugin {
+public class SynchronousScheduler extends AbstractScheduler {
 
     /**
-     * The injector to create our instances.
+     * Create a new synchronous scheduler.
+     *
+     * @param plugin          The bukkit plugin we schedule tasks for.
+     * @param bukkitScheduler The underlying bukkit scheduler.
      */
-    private Injector injector;
-
-    /**
-     * The instance of the caroline application.
-     */
-    private CarolineApplication carolineApplication;
-
-    @Override
-    public void onLoad() {
-        injector = Guice.createInjector(new CarolineModule(this));
-        carolineApplication = injector.getInstance(CarolineApplication.class);
+    @Inject
+    public SynchronousScheduler(Plugin plugin, BukkitScheduler bukkitScheduler) {
+        super(plugin, bukkitScheduler);
     }
 
     @Override
-    public void onEnable() {
-        carolineApplication.initialize();
+    protected BukkitTask schedule(Runnable runnable) {
+        return getBukkitScheduler().runTask(getPlugin(), runnable);
     }
 
     @Override
-    public void onDisable() {
-        carolineApplication.destroy();
+    protected BukkitTask schedule(Runnable runnable, int delay) {
+        return getBukkitScheduler().runTaskLater(getPlugin(), runnable, delay);
+    }
+
+    @Override
+    protected BukkitTask schedule(Runnable runnable, int delay, int interval) {
+        return getBukkitScheduler().runTaskTimerAsynchronously(getPlugin(), runnable, delay, interval);
     }
 }

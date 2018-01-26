@@ -22,44 +22,43 @@
  * SOFTWARE.
  */
 
-package de.felix_klauke.caroline.scheduler;
+package de.felix_klauke.caroline.core;
 
-import org.bukkit.plugin.Plugin;
-import org.bukkit.scheduler.BukkitScheduler;
-import org.bukkit.scheduler.BukkitTask;
-
-import javax.inject.Inject;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import de.felix_klauke.caroline.core.module.CarolineModule;
+import org.bukkit.plugin.java.JavaPlugin;
 
 /**
- * The scheduler implementation that will schedule synchronous tasks.
+ * The bukkit plugin used when this library is run as a plugin.
  *
  * @author Felix Klauke <fklauke@itemis.de>
  */
-public class SynchronousScheduler extends AbstractScheduler {
+public class CarolinePlugin extends JavaPlugin {
 
     /**
-     * Create a new synchronous scheduler.
-     *
-     * @param plugin          The bukkit plugin we schedule tasks for.
-     * @param bukkitScheduler The underlying bukkit scheduler.
+     * The injector to create our instances.
      */
-    @Inject
-    public SynchronousScheduler(Plugin plugin, BukkitScheduler bukkitScheduler) {
-        super(plugin, bukkitScheduler);
+    private Injector injector;
+
+    /**
+     * The instance of the caroline application.
+     */
+    private CarolineApplication carolineApplication;
+
+    @Override
+    public void onLoad() {
+        injector = Guice.createInjector(new CarolineModule(this));
+        carolineApplication = injector.getInstance(CarolineApplication.class);
     }
 
     @Override
-    protected BukkitTask schedule(Runnable runnable) {
-        return getBukkitScheduler().runTask(getPlugin(), runnable);
+    public void onEnable() {
+        carolineApplication.initialize();
     }
 
     @Override
-    protected BukkitTask schedule(Runnable runnable, int delay) {
-        return getBukkitScheduler().runTaskLater(getPlugin(), runnable, delay);
-    }
-
-    @Override
-    protected BukkitTask schedule(Runnable runnable, int delay, int interval) {
-        return getBukkitScheduler().runTaskTimerAsynchronously(getPlugin(), runnable, delay, interval);
+    public void onDisable() {
+        carolineApplication.destroy();
     }
 }
