@@ -2,3 +2,5 @@ main: de.felix_klauke.caroline.CarolinePlugin
 version: 0.1
 author: Felix 'SasukeKawaii' Klauke
 description: RxJava at its fullest.
+
+depend: [ProtocolLib]
