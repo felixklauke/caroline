@@ -15,7 +15,7 @@ on bukkit schedulers to make rxjava usable in general. Have fun using this.
 _Caroline Core:_
 ```xml
 <dependency>
-    <groupId>de.felix-klauke</groupId>
+    <groupId>de.felix_klauke</groupId>
     <artifactId>caroline-core</artifactId>
     <version>1.0-SNAPSHOT</version>
 </dependency>
