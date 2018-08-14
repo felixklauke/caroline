@@ -1,2 +1,31 @@
+######################################
+### Configure programming language ###
+######################################
 language: java
-script: mvn clean compile test
+
+##################################
+### Make sure using Oracle JDK ###
+##################################
+jdk:
+- oraclejdk8
+
+###################################
+### Disable Email notifications ###
+###################################
+notifications:
+  email: false
+
+###########################
+### Actual Build Script ###
+###########################
+script:
+- bash buildViaTravis.sh
+
+##################
+### Deployment ###
+##################
+deploy:
+  provider: script
+  script: bash installViaTravis.sh
+  on:
+    branch: master

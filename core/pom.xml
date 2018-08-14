@@ -34,10 +34,27 @@
 
     <artifactId>caroline-core</artifactId>
 
-    <version>1.1</version>
+    <version>1.2</version>
+
+    <distributionManagement>
+
+        <!-- Release repo -->
+        <repository>
+            <id>felixklauke-maven-releases</id>
+            <url>https://repo.felix-klauke.de/repository/maven-releases/</url>
+        </repository>
+
+        <!-- Snapshot repo -->
+        <snapshotRepository>
+            <id>felixklauke-maven-snapshots</id>
+            <url>https://repo.felix-klauke.de/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <build>
         <plugins>
+
+            <!-- Compiler settings -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -50,6 +67,7 @@
     </build>
 
     <repositories>
+
         <!-- Spigot nexus -->
         <repository>
             <id>spigot-repo</id>
@@ -64,6 +82,7 @@
     </repositories>
 
     <dependencies>
+
         <!--Spigot API-->
         <dependency>
             <groupId>org.spigotmc</groupId>
