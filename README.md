@@ -5,6 +5,9 @@ bukkit server? Yes? Then you may know what this is and why you need it. Without 
 unlikely that your server will run very long. Using this pluginManager you can schedule rx javas internal thread architecture
 on bukkit schedulers to make rxjava usable in general. Have fun using this.
 
+# Build Status
+[![Build Status](https://travis-ci.org/FelixKlauke/caroline.svg?branch=dev)](https://travis-ci.org/FelixKlauke/caroline)
+
 # Usage
 - Install [Maven](http://maven.apache.org/download.cgi)
 - Clone this repo
