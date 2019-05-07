@@ -3,6 +3,7 @@ version: 1.2.0
 author: Felix Klauke
 
 prefix: RxCaroline
+website: https://www.felix-klauke.com
 
 description: RxJava at its fullest.
 name: Caroline
