@@ -65,7 +65,7 @@ RxCaroline.observeEvent(PlayerJoinEvent.class, EventPriority.LOWEST, true).subsc
 # Architecture
 We use google guice ( https://github.com/google/guice )  for dependency injection. You should have a look at that
 before you consider touching our architecture. The guice dependencies are defined in the
-`de.felix_klauke.caroline.core.module.CarolineModule`. The bukkit pluginManager will create an instance of the main
+`CarolineModule`. The bukkit pluginManager will create an instance of the main
 application using the guice injector. The main application will hook our schedulers into rx java. Currently
 we support
 - Computation Scheduler (synchronous)

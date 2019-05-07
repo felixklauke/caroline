@@ -22,11 +22,11 @@
  * SOFTWARE.
  */
 
-package de.felix_klauke.caroline.core;
+package de.felixklauke.caroline.core;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import de.felix_klauke.caroline.core.module.CarolineModule;
+import de.felixklauke.caroline.core.module.CarolineModule;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**

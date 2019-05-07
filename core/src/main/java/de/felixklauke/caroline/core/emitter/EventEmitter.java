@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package de.felix_klauke.caroline.core.emitter;
+package de.felixklauke.caroline.core.emitter;
 
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;

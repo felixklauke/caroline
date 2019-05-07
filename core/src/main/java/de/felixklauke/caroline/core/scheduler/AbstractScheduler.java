@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package de.felix_klauke.caroline.core.scheduler;
+package de.felixklauke.caroline.core.scheduler;
 
 import io.reactivex.Scheduler;
 import io.reactivex.disposables.CompositeDisposable;

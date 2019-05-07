@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package de.felix_klauke.caroline.core.scheduler;
+package de.felixklauke.caroline.core.scheduler;
 
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitScheduler;
@@ -31,31 +31,31 @@ import org.bukkit.scheduler.BukkitTask;
 import javax.inject.Inject;
 
 /**
- * The scheduler implementation that will schedule asynchronous tasks.
+ * The scheduler implementation that will schedule synchronous tasks.
  *
  * @author Felix Klauke <fklauke@itemis.de>
  */
-public class AsynchronousScheduler extends AbstractScheduler {
+public class SynchronousScheduler extends AbstractScheduler {
 
     /**
-     * Create a new asynchronous scheduler.
+     * Create a new synchronous scheduler.
      *
      * @param plugin          The bukkit plugin we schedule tasks for.
      * @param bukkitScheduler The underlying bukkit scheduler.
      */
     @Inject
-    public AsynchronousScheduler(Plugin plugin, BukkitScheduler bukkitScheduler) {
+    public SynchronousScheduler(Plugin plugin, BukkitScheduler bukkitScheduler) {
         super(plugin, bukkitScheduler);
     }
 
     @Override
     protected BukkitTask schedule(Runnable runnable) {
-        return getBukkitScheduler().runTaskAsynchronously(getPlugin(), runnable);
+        return getBukkitScheduler().runTask(getPlugin(), runnable);
     }
 
     @Override
     protected BukkitTask schedule(Runnable runnable, int delay) {
-        return getBukkitScheduler().runTaskLaterAsynchronously(getPlugin(), runnable, delay);
+        return getBukkitScheduler().runTaskLater(getPlugin(), runnable, delay);
     }
 
     @Override

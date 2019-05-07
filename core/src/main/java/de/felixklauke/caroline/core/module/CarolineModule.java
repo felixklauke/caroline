@@ -22,44 +22,47 @@
  * SOFTWARE.
  */
 
-package de.felix_klauke.caroline.core.scheduler;
+package de.felixklauke.caroline.core.module;
 
+import com.google.inject.AbstractModule;
+import com.google.inject.name.Names;
+import de.felixklauke.caroline.core.CarolinePlugin;
+import de.felixklauke.caroline.core.RxCaroline;
+import de.felixklauke.caroline.core.scheduler.AsynchronousScheduler;
+import de.felixklauke.caroline.core.scheduler.SynchronousScheduler;
+import io.reactivex.Scheduler;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitScheduler;
-import org.bukkit.scheduler.BukkitTask;
-
-import javax.inject.Inject;
 
 /**
- * The scheduler implementation that will schedule synchronous tasks.
+ * The google guice dependency module.
  *
  * @author Felix Klauke <fklauke@itemis.de>
  */
-public class SynchronousScheduler extends AbstractScheduler {
+public class CarolineModule extends AbstractModule {
 
     /**
-     * Create a new synchronous scheduler.
-     *
-     * @param plugin          The bukkit plugin we schedule tasks for.
-     * @param bukkitScheduler The underlying bukkit scheduler.
+     * The caroline plugin instance.
      */
-    @Inject
-    public SynchronousScheduler(Plugin plugin, BukkitScheduler bukkitScheduler) {
-        super(plugin, bukkitScheduler);
+    private final CarolinePlugin carolinePlugin;
+
+    /**
+     * Create a new caroline dependency module.
+     *
+     * @param carolinePlugin The caroline plugin instance.
+     */
+    public CarolineModule(CarolinePlugin carolinePlugin) {
+        this.carolinePlugin = carolinePlugin;
     }
 
     @Override
-    protected BukkitTask schedule(Runnable runnable) {
-        return getBukkitScheduler().runTask(getPlugin(), runnable);
-    }
+    protected void configure() {
+        bind(Plugin.class).toInstance(carolinePlugin);
+        bind(BukkitScheduler.class).toInstance(carolinePlugin.getServer().getScheduler());
 
-    @Override
-    protected BukkitTask schedule(Runnable runnable, int delay) {
-        return getBukkitScheduler().runTaskLater(getPlugin(), runnable, delay);
-    }
+        bind(Scheduler.class).annotatedWith(Names.named("syncScheduler")).to(SynchronousScheduler.class).asEagerSingleton();
+        bind(Scheduler.class).annotatedWith(Names.named("asyncScheduler")).to(AsynchronousScheduler.class).asEagerSingleton();
 
-    @Override
-    protected BukkitTask schedule(Runnable runnable, int delay, int interval) {
-        return getBukkitScheduler().runTaskTimerAsynchronously(getPlugin(), runnable, delay, interval);
+        requestStaticInjection(RxCaroline.class);
     }
 }

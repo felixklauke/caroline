@@ -22,9 +22,9 @@
  * SOFTWARE.
  */
 
-package de.felix_klauke.caroline.core;
+package de.felixklauke.caroline.core;
 
-import de.felix_klauke.caroline.core.emitter.EventEmitter;
+import de.felixklauke.caroline.core.emitter.EventEmitter;
 import io.reactivex.Observable;
 import io.reactivex.disposables.CompositeDisposable;
 import org.bukkit.event.Event;

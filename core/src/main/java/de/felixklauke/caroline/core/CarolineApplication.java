@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package de.felix_klauke.caroline.core;
+package de.felixklauke.caroline.core;
 
 import io.reactivex.Scheduler;
 import io.reactivex.plugins.RxJavaPlugins;

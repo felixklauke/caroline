@@ -1,5 +1,5 @@
-main: de.felix_klauke.caroline.CarolinePlugin
-version: 0.1
+main: de.felixklauke.caroline.CarolinePlugin
+version: 1.2.0
 author: Felix 'SasukeKawaii' Klauke
 description: RxJava at its fullest.
 name: Caroline
