@@ -35,7 +35,7 @@ import org.bukkit.plugin.PluginManager;
 /**
  * A custom event emitter that will emit bukkit events into observables.
  *
- * @param <EventType> The tyoe of the event.
+ * @param <EventType> The type of the event.
  */
 public class EventEmitter<EventType> implements ObservableOnSubscribe<EventType> {
 
