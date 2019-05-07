@@ -36,21 +36,6 @@
 
     <version>1.2</version>
 
-    <distributionManagement>
-
-        <!-- Release repo -->
-        <repository>
-            <id>felixklauke-maven-releases</id>
-            <url>https://repo.felix-klauke.de/repository/maven-releases/</url>
-        </repository>
-
-        <!-- Snapshot repo -->
-        <snapshotRepository>
-            <id>felixklauke-maven-snapshots</id>
-            <url>https://repo.felix-klauke.de/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <build>
         <plugins>
 
