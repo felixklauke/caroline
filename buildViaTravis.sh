@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 # Build via maven
-mvn clean compile test
+mvn clean compile package install test
