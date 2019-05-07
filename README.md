@@ -16,14 +16,33 @@ on bukkit schedulers to make rxjava usable in general. Have fun using this.
 - Clone this repo
 - Install: ```mvn clean install```
 
+**Maven repositories**
+```xml
+<repositories>
+    <!-- Klauke Enterprises Releases -->
+    <repository>
+        <id>klauke-enterprises-maven-releases</id>
+        <name>Klauke Enterprises Maven Releases</name>
+        <url>https://repository.klauke-enterprises.com/repository/maven-releases/</url>
+    </repository>
+	
+    <!-- Klauke Enterprises Snapshots -->
+    <repository>
+        <id>klauke-enterprises-maven-snapshots</id>
+        <name>Klauke Enterprises Maven Snapshots</name>
+        <url>https://repository.klauke-enterprises.com/repository/maven-snapshots/</url>
+    </repository>
+</repositories>
+```
+
 **Maven dependencies**
 
 _Caroline Core:_
 ```xml
 <dependency>
-    <groupId>de.felix_klauke</groupId>
+    <groupId>de.felixklauke.caroline</groupId>
     <artifactId>caroline-core</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.2.0</version>
 </dependency>
 ```
 # Example
