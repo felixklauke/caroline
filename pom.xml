@@ -30,21 +30,19 @@
     <groupId>de.felix_klauke</groupId>
     <artifactId>caroline</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
-
+    <version>1.0</version>
 
     <distributionManagement>
-
-        <!-- Release repo -->
         <repository>
-            <id>felixklauke-maven-releases</id>
-            <url>https://repo.felix-klauke.de/repository/maven-releases/</url>
+            <id>klauke-enterprises-maven-releases</id>
+            <name>Klauke Enterprises Maven Releases</name>
+            <url>https://repository.klauke-enterprises.com/repository/maven-releases/</url>
         </repository>
 
-        <!-- Snapshot repo -->
         <snapshotRepository>
-            <id>felixklauke-maven-snapshots</id>
-            <url>https://repo.felix-klauke.de/repository/maven-snapshots/</url>
+            <id>klauke-enterprises-maven-snapshots</id>
+            <name>Klauke Enterprises Maven Snapshots</name>
+            <url>https://repository.klauke-enterprises.com/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
