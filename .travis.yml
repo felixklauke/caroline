@@ -29,6 +29,7 @@ deploy:
   script: bash installViaTravis.sh
   on:
     branch: master
+    tags: true
 
 ###################
 ### Environment ###
