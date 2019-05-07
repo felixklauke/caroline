@@ -6,7 +6,10 @@ unlikely that your server will run very long. Using this pluginManager you can s
 on bukkit schedulers to make rxjava usable in general. Have fun using this.
 
 # Build Status
-[![Build Status](https://travis-ci.org/FelixKlauke/caroline.svg?branch=dev)](https://travis-ci.org/FelixKlauke/caroline)
+|             	| Build Status                                                                                                                                              	| Test Code Coverage                                                                                                                                               	|
+|-------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------	|------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Master      	| [![Build Status](https://travis-ci.org/FelixKlauke/caroline.svg?branch=master)](https://travis-ci.org/FelixKlauke/caroline) 	| [![codecov](https://codecov.io/gh/FelixKlauke/caroline/branch/master/graph/badge.svg)](https://codecov.io/gh/FelixKlauke/caroline) 	|
+| Development 	| [![Build Status](https://travis-ci.org/FelixKlauke/caroline.svg?branch=dev)](https://travis-ci.org/FelixKlauke/caroline)    	| [![codecov](https://codecov.io/gh/FelixKlauke/caroline/branch/dev/graph/badge.svg)](https://codecov.io/gh/FelixKlauke/caroline)    	|
 
 # Usage
 - Install [Maven](http://maven.apache.org/download.cgi)
