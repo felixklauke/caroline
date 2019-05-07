@@ -7,7 +7,7 @@ language: java
 ### Make sure using Oracle JDK ###
 ##################################
 jdk:
-- oraclejdk8
+  - oraclejdk8
 
 ###################################
 ### Disable Email notifications ###
@@ -19,7 +19,7 @@ notifications:
 ### Actual Build Script ###
 ###########################
 script:
-- bash buildViaTravis.sh
+  - bash buildViaTravis.sh
 
 ##################
 ### Deployment ###
@@ -29,3 +29,11 @@ deploy:
   script: bash installViaTravis.sh
   on:
     branch: master
+
+###################
+### Environment ###
+###################
+env:
+  global:
+  - secure: hirmc+ds+Q8DFQOKTfz2GOxB8prooIqs+0AOL4b4OomVHDfnbhLygmg+bscMQvNWFSZ8znvoywgpEfLSGxvg017LvAVSiThNJS3UCnlEaGChQnr1Y1LgyfwLX+CVq/xRHwcjAS6Yip4rqkfxqExeuepCXQIV7eukGJGcaFuNdOzoLP93d682nO4ZaB4tLxdjk8PRs7Y1e6eXKnePClYRgtXsqwEd28t6lH5qIezkuuoYKt+k9yuh6cqcPni/EuLKYS2YVlYkXelU0TjWbuB43FGsDC7pqNu0lZvzs+t0b3NQLrA1vIA3b7tWEi7XpXfYrsexrK0nLUwji7i8bfghmxGWlp7BBiTK9wpHohWxGUT6tUcaTLcQtt4Q1//ixt+eNSQ8TvBmEmZypRIBz9YQuQc7Cm+LQPr/xzzXH75w5tcWSCJJxwtWPVeD4g41+aJHHsyTvyx5ZeE9qWJmhlCtkApVIrWcYNDVl/PQuxCFfkkjmqLr5JavSUPs5rMa1XA8FQrIjmHWw3IgoBZb9DiG03LdfCD4025v+IpgvZwlnUmX9YQ052ave6yoM80SfftRB3Zd/x4GhPwmO81r7C5hyGgvu9O1r2GMXjNdUmsPhxMv1C8p8WQbOwcBdlI6EdMXdB3dMru0w55p13mUl+IVNy3YWzaLW13czYY37vC+8ak=
+  - secure: TIKA77ClJmSDOdaYdKXDgBTaks7mH3m3Uide1jssLM31/hO1agOeLqQ9hmrFQb6bmmLoQJHp+uDRB60qJGffIEPCMPLWHxsm+rj8GgskJUyhoLXlY0B5YOqTsz6sZMP4JfwIsPeFHPfLwDcHmyvdII2xNn4f9p+GmzxlvxlFdKaB3MEF2al+Cv39+VBsdQ+YdMuZYig3wNryCE7ZtYKHPhU6841MIRNWDi5xaQnUVfUd1ilC3ZgnM6dcMF36Oc8IAArNuok+OQO6kxF99cqWHHB5wBapDsvWpYP199uPsRXQsBzFwVGp8zqXvHVQFRpMCPVw4bUWkMGWvz8viMrC14JSk/RfwT9zwmz9cgu8sOWhoOau9i4isgvWBIOsxfkXCbhuo2q3XtL+TcbBFfN6UO37dZqrDTYIyesL0HhpbTM7JdQ6/4peZaYQGDGKRrmb4JbV0QJZ7o/DwUTxa8iZUYBnZKPX/MnKaUT8Cj4ZZDr2c67+KTTji+tkEUyBs+nByepfNkOsHxGj4wDuaa0c3C/bonVLkjNC3CzdkTv6cEfaJ1tSZsbAAR0U57tlrGPVkbBhonXbYwVRj63FFRukvUrN+Zggpeih3QrmT5yKcFIThqTt6toeYU053MljQR/Ul9AGRBfVH4B/AKmuBMP7c4DlKjgu2ef54LrV1mFYHyw=
